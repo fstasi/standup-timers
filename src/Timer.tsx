@@ -35,7 +35,7 @@ export function Timer({
     return (
         <a
           onClick={() => setIsRunning(!isRunning)}
-          className={`timer ${isRunning ? 'timer--running' : ''}`}
+          className={`timer ${isRunning ? 'timer--active' : ''}`}
         >
           <div className="timer__elapsed" style={{width: `${timeElapsed/time*100}%`}} />
           <div className="timer__text">{name} <span className="timer__time">{remainingTime(time, timeElapsed)}</span></div>

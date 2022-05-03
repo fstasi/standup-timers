@@ -28,7 +28,7 @@ export function App(): React.ReactElement {
 
   return (
     <>
-      <h2>Tooling Timers</h2>
+      <h2>Standup Timers</h2>
       <div>
         {timers.map((t, i) => (
           <Timer name={t.name} time={t.time} key={i} />
