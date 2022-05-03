@@ -1,0 +1,42 @@
+@import '~arduino-sass/src/fonts';
+@import '~arduino-sass/src/variables';
+
+body {
+    background-color: $clouds;
+    @include font(opensans);
+    padding: 0 20px;
+}
+
+.timer {
+    display: block;
+    border: 1px solid $teal2;
+    margin-bottom: 15px;
+    position: relative;
+    border-radius: 4px;
+    height: 40px;
+    cursor: pointer;
+    
+    &__text {
+        position: relative;
+        padding: 10px;
+        line-height: 20px;
+        text-transform: capitalize;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__time {
+        text-transform: capitalize;
+    }
+
+    &__elapsed {
+        position: absolute;
+        background-color: $teal0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+    }
+}
+
+@include import-fonts;
