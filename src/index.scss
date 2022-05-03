@@ -8,13 +8,20 @@
     --timer-text-color: #{$teal5};
     --timer-elapsed-color: #{$teal0};
 }
-
+.sinthwave {
+    --main-bg-color: #3c345c;
+    --main-text-color: #b8aec8;
+    --timer-border-color: #5da4a6;
+    --timer-outline-color: #5da4a6;
+    --timer-text-color: #d30cb8;
+    --timer-elapsed-color: #6df1d8;
+}
 body {
     background-color: var(--main-bg-color);
     @include font(opensans);
     @include font(opensans, semi-bold);
     padding: 0 20px;
-    color: var(--timer-text-color);
+    color: var(--main-text-color);
 }
 
 .timer {
@@ -25,6 +32,8 @@ body {
     border-radius: 4px;
     height: 40px;
     cursor: pointer;
+    color: var(--timer-text-color);
+    overflow: hidden;
 
     &--active {
         box-shadow: var(--timer-outline-color) 0px 0px 0 3px;
