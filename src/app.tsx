@@ -7,10 +7,14 @@ export function App(): React.ReactElement {
   const [timers, setTimers] = useState<timer[]>([]);
   let [searchParams, setSearchParams] = useSearchParams();
 
+  const [runningTimer, setRunningTimer] = useState(-1);
+
   useEffect(() => {
     try {
       const qsTimers = [...searchParams];
-      setTimers(qsTimers.map(timer => ({time: parseInt(timer[1]), name: timer[0]})));
+      setTimers(
+        qsTimers.map((timer) => ({ time: parseInt(timer[1]), name: timer[0] }))
+      );
     } catch (e) {
       setTimers([]);
     }
@@ -22,8 +26,11 @@ export function App(): React.ReactElement {
 
   const updateTimers = (newTimers: timer[]): void => {
     setTimers(newTimers);
-    const timersArray: ParamKeyValuePair[] = newTimers.map(t => ([t.name, t.time.toString()]));
-    setSearchParams(timersArray, {replace: true});
+    const timersArray: ParamKeyValuePair[] = newTimers.map((t) => [
+      t.name,
+      t.time.toString(),
+    ]);
+    setSearchParams(timersArray, { replace: true });
   };
 
   return (
@@ -31,7 +38,13 @@ export function App(): React.ReactElement {
       <h2>Standup Timers</h2>
       <div>
         {timers.map((t, i) => (
-          <Timer name={t.name} time={t.time} key={i} />
+          <Timer
+            name={t.name}
+            time={t.time}
+            key={i}
+            isRunning={runningTimer === i}
+            toggleTimer={() => setRunningTimer(runningTimer === i ? -1 : i)}
+          />
         ))}
       </div>
     </>
