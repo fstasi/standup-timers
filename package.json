@@ -2,7 +2,6 @@
   "name": "standup-timers",
   "version": "0.1.0",
   "source": "index.html",
-  "homepage": "https://fstasi.github.io/standup-timers/",
   "dependencies": {
     "@arduino/arc": "arduino/arc",
     "arduino-sass": "^3.0.1",

@@ -23,7 +23,7 @@ jobs:
       run: yarn
     
     - name: Build project
-      run: yarn build
+      run: yarn build --public-url https://fstasi.github.io/standup-timers/
 
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2
